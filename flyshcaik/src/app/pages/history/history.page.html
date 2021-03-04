@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fly shcaik</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/1"></ion-back-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let his of history">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+
+      <ion-grid>
+
+        <!-- <ion-row>
+          <ion-col> <ion-label>{{his.ordernumber}}</ion-label> </ion-col>
+        </ion-row> -->
+
+        <ion-row>
+          <ion-col> <ion-label> Library: {{his.library}}</ion-label> </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col> <ion-label>Item: {{his.item}}</ion-label> </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col> <ion-label>Drop location: {{his.droplocation}}</ion-label> </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col> <ion-button (click)="presentAlert(his.o_id)">Cancel</ion-button> </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-item>
+
+  </div>
+</ion-content>

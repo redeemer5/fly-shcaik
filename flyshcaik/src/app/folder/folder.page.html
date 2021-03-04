@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Fly schaik</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<div>
+  <!-- <ion-card>
+    <ion-card-title style="height: 150px; background-size:cover; background-repeat: no-repeat;"> <img src="../../assets/flyschaik.jpeg"> </ion-card-title>
+  </ion-card> -->
+
+  <img src="../../assets/flyschaik.jpeg">
+</div>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3 style="text-align: start;">Most selected</h3>
+      </ion-col>
+
+      <ion-col>
+         <!-- <h4 style="text-align: end; color: blue;">view all</h4> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-slides pager="true">
+    <div *ngFor="let b of books">
+      <ion-slide *ngIf="b.count > 5">
+        <ion-card>
+          <ion-card-title> <img src="../../assets/books.png"> </ion-card-title>
+          <ion-card-subtitle>{{b.booktitle}}</ion-card-subtitle>
+          <ion-label>{{b.field}}</ion-label>
+        </ion-card>
+      </ion-slide>
+    </div>
+  </ion-slides>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3 style="text-align: start;">Fields</h3>
+      </ion-col>
+
+      <ion-col>
+         <h4 style="text-align: end; color: blue;" routerLink="/search">view all books</h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/IT">IT</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/Law">Law</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/Politics">Politics</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/Engineering">Engineering</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/Medicine">Medicine</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/field/Education">Education</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

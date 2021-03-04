@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h3 style="text-align: center;">Select drop-off location</h3>
+  <ion-item>
+    <ion-label>drop-off location</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="selected">
+      <ion-select-option value="uj apk">uj apk</ion-select-option>
+      <ion-select-option value="uj apb">uj apb</ion-select-option>
+      <ion-select-option value="uj dfc">uj dfc</ion-select-option>
+      <ion-select-option value="uj soweto">uj soweto</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <h3 style="text-align: center;">Add or remove selected books</h3>
+  <div *ngFor="let p of cart">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>{{p.booktitle}}</ion-col>
+
+        <ion-col size="2" offset="5">
+          <ion-button fill="clear" color="medium" (click)="removeCartItem(p)">
+            <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-button expand="block" (click)="requestBook()">Request</ion-button>
+</ion-content>

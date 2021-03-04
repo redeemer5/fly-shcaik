@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fly schaik</ion-title>
+    <ion-buttons slot="start" (click)="clearCart()">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> 
+    
+    <ion-buttons slot="end">
+      <ion-button (click)="openCart()">
+        <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  
+  <ion-searchbar show-cancel-button="never" (click)="refresh()" (ionInput)="filterJsonData($event)"></ion-searchbar>
+
+<div *ngFor="let books of books$">
+  <ion-item (click)="addToCart(books)">
+    <ion-avatar slot="start">
+      <img src="../../../assets/books.png">
+    </ion-avatar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label style="font-weight: bold;">{{books.booktitle}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>{{books.description}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-label>{{books.author}}, {{books.version}}</ion-label> 
+           </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col>
+          <ion-label>{{books.quantity}} books left at {{books.library}}</ion-label> 
+         </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+
+
+</ion-content>
